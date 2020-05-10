@@ -11,11 +11,10 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "npm run build:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "build:style": "tailwind build src/styles/tailwind.css -o src/styles/main.css",
+    "start": "npm run build:style && react-scripts start",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

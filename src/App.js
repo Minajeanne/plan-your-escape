@@ -3,10 +3,8 @@ import './styles/main.css';
 
 function App() {
   return (
-    <div className="">
-      <header className="b">
-        Plan Your Escape
-      </header>
+    <div className="text-orange-700 text-center text-4xl p-2">
+      <p>Plan Your Escape</p>
     </div>
   );
 }
