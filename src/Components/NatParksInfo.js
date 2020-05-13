@@ -29,31 +29,32 @@ class NatParksInfo extends React.Component {
     const { isLoading, parks } = this.state;
     // debugger
     return (
-      <>
-        <h1 className="font-sans font-bold">US National Parks</h1>
+      <div className="container bg-transparent border rounded-lg overflow-hidden shadow-md">
+        <h1 className="font-sans font-semibold text-center text-green-900 text-3xl">US National Parks</h1>
         {!isLoading ? (
           parks.map(park => {
             return (
               <>
-                <ul key={park.id}>
-                  <li>{park.fullName}</li>
-                  <li>Designation: {park.designation}</li>
-                  <li>Location: {park.states}</li>
-                  <li>Description: {park.description}</li>
+                <ul key={park.id} className="p-6 ">
+                  <li className="text-left text-2xl uppercase tracking-wide">{park.fullName}</li>
+                  <li className="text-left text-lg">Designation: {park.designation}</li>
+                  <li className="text-left text-lg">Location: {park.states}</li>
+                  <li className="text-left text-lg p-2">{park.description}</li>
                 </ul>
                 {park.images.map(image =>
-                  <figure className="flex flex-col">
-                    <img className="max-w-md" src={image.url} alt={image.altText} />
-                    <figcaption className="flex-wrap">{image.caption}</figcaption>
+                  <figure className="object-center p-3 m-2">
+                    <img className="flex flex-wrap" src={image.url} alt={image.altText} />
+                    <figcaption className="text-center tracking-tighter ">{image.caption}</figcaption>
                   </figure>
                 )}
+                <hr />
               </>
             );
           })
         ) : (
           <h3>Loading...</h3>
         )}
-      </>
+      </div>
     );
   }
 }
