@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/main.css";
 // import camping from './images/undraw_camping_noc8.svg';
 import backgroundPattern from './images/topography.svg';
+import NatParksInfo from './Components/NatParksInfo';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           I don't know about you, but I need to get out of here.
         </p>
       </div>
+      <NatParksInfo />
     </div>
   );
 }
