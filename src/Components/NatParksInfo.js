@@ -1,4 +1,5 @@
 import React from 'react';
+import "../styles/main.css";
 
 const axios = require('axios');
 
@@ -13,7 +14,7 @@ class NatParksInfo extends React.Component {
     axios.get("https://developer.nps.gov/api/v1/parks?limit=2&api_key=bIgHnNja5cMSdPCuz62UsRG93RfyYXSGAdlp0fgX")
     .then(response => {
       this.setState({
-        parks: response.data,
+        parks: response.data.data,
         isLoading: false
       });
     })
@@ -26,20 +27,21 @@ class NatParksInfo extends React.Component {
 
   render () {
     const { isLoading, parks } = this.state;
-
     debugger
     return (
       <>
-        <h1>US National Parks</h1>
+        <h1 className="font-sans font-bold">US National Parks</h1>
         {!isLoading ? (
-          parks.data.map(park => {
+          parks.map(park => {
             return (
-              <div key={park.id}>
-                <p>Name: {park.name}</p>
-                <p>Location: {park.states}</p>
-                <p>Description: {park.description}</p>
+              <ul key={park.id}>
+                <li>{park.fullName}</li>
+                <li>Designation: {park.designation}</li>
+                <li>Location: {park.states}</li>
+                <li>Description: {park.description}</li>
+                <img className="max-w-sm" src={park.images[0].url} alt={park.images[0].altText} />
                 <hr />
-              </div>
+              </ul>
             );
           })
         ) : (
