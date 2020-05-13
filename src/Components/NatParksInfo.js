@@ -27,21 +27,27 @@ class NatParksInfo extends React.Component {
 
   render () {
     const { isLoading, parks } = this.state;
-    debugger
+    // debugger
     return (
       <>
         <h1 className="font-sans font-bold">US National Parks</h1>
         {!isLoading ? (
           parks.map(park => {
             return (
-              <ul key={park.id}>
-                <li>{park.fullName}</li>
-                <li>Designation: {park.designation}</li>
-                <li>Location: {park.states}</li>
-                <li>Description: {park.description}</li>
-                <img className="max-w-sm" src={park.images[0].url} alt={park.images[0].altText} />
-                <hr />
-              </ul>
+              <>
+                <ul key={park.id}>
+                  <li>{park.fullName}</li>
+                  <li>Designation: {park.designation}</li>
+                  <li>Location: {park.states}</li>
+                  <li>Description: {park.description}</li>
+                </ul>
+                {park.images.map(image =>
+                  <figure className="flex flex-col">
+                    <img className="max-w-md" src={image.url} alt={image.altText} />
+                    <figcaption className="flex-wrap">{image.caption}</figcaption>
+                  </figure>
+                )}
+              </>
             );
           })
         ) : (
