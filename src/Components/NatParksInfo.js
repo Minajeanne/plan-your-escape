@@ -30,15 +30,15 @@ class NatParksInfo extends React.Component {
     // debugger
     return (
       <div className="container bg-transparent border rounded-lg overflow-hidden shadow-md">
-        <h1 className="font-sans font-semibold text-center text-green-900 text-3xl">US National Parks</h1>
+        <h1 className="font-sans font-semibold text-center text-green-900 text-3xl py-8">US National Parks</h1>
         {!isLoading ? (
           parks.map(park => {
             return (
               <>
                 <ul key={park.id} className="p-6 ">
-                  <li className="text-left text-2xl uppercase tracking-wide">{park.fullName}</li>
-                  <li className="text-left text-lg">Designation: {park.designation}</li>
-                  <li className="text-left text-lg">Location: {park.states}</li>
+                  <li className="text-left text-xl uppercase tracking-wide">{park.fullName}</li>
+                  <li className="text-left text-lg p-1">Designation: {park.designation}</li>
+                  <li className="text-left text-lg p-1">Location: {park.states}</li>
                   <li className="text-left text-lg p-2">{park.description}</li>
                 </ul>
                 {park.images.map(image =>
