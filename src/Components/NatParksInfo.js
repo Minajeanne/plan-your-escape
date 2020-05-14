@@ -27,7 +27,7 @@ class NatParksInfo extends React.Component {
 
   render () {
     const { isLoading, parks } = this.state;
-    // debugger
+    
     return (
       <div className="container bg-transparent border rounded-lg overflow-hidden shadow-md">
         <h1 className="font-sans font-semibold text-center text-green-900 text-3xl py-8">US National Parks</h1>
@@ -42,7 +42,7 @@ class NatParksInfo extends React.Component {
                   <li className="text-left text-lg p-2">{park.description}</li>
                 </ul>
                 {park.images.map(image =>
-                  <figure className="flex flex-row object-center grid grid-rows-3 p-3 m-2">
+                  <figure className="flex flex-row object-center grid p-3 m-2">
                     <img className="rounded" src={image.url} alt={image.altText} />
                     <figcaption className="text-center tracking-tighter ">{image.caption}</figcaption>
                   </figure>
