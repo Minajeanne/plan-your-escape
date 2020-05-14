@@ -11,7 +11,7 @@ class NatParksInfo extends React.Component {
   }
 
   getParks() {
-    axios.get("https://developer.nps.gov/api/v1/parks?limit=2&api_key=bIgHnNja5cMSdPCuz62UsRG93RfyYXSGAdlp0fgX")
+    axios.get("https://developer.nps.gov/api/v1/parks?limit=10&api_key=bIgHnNja5cMSdPCuz62UsRG93RfyYXSGAdlp0fgX")
     .then(response => {
       this.setState({
         parks: response.data.data,
@@ -42,8 +42,8 @@ class NatParksInfo extends React.Component {
                   <li className="text-left text-lg p-2">{park.description}</li>
                 </ul>
                 {park.images.map(image =>
-                  <figure className="object-center p-3 m-2">
-                    <img className="flex flex-wrap" src={image.url} alt={image.altText} />
+                  <figure className="flex flex-row object-center grid grid-rows-3 p-3 m-2">
+                    <img className="rounded" src={image.url} alt={image.altText} />
                     <figcaption className="text-center tracking-tighter ">{image.caption}</figcaption>
                   </figure>
                 )}
