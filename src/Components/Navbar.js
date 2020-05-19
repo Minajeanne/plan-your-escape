@@ -14,7 +14,31 @@ class Navbar extends React.Component {
   }
 
   findMe = () => {
+    const status = document.querySelector('#status');
+    const mapLink = document.querySelector('#map-link');
 
+    mapLink.href = '';
+    mapLink.textContent = '';
+
+    function success(position) {
+      const latitude  = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      status.textContent = '';
+      mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+      mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+    }
+
+    function error() {
+      status.textContent = 'Unable to retrieve your location';
+    }
+
+    if(!navigator.geolocation) {
+      status.textContent = 'Geolocation is not supported by your browser';
+    } else {
+      status.textContent = 'Locating…';
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
   }
 
 
@@ -33,6 +57,8 @@ class Navbar extends React.Component {
               <button onClick={this.findMe} type="button" class="block align-middle text-red-700 uppercase font-semibold hover:text-red-300 text-lg focus:text-white focus:outline-none">
                 Find Me
               </button>
+              <p id="status"></p>
+              <a id="map-link" target="_blank"></a>
             </div>
             <button onClick={this.handleClick} type="button" class="block text-gray-700 hover:text-gray-400 focus:text-white focus:outline-none">
               <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
