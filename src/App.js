@@ -4,6 +4,7 @@ import backgroundPattern from './images/topography.svg';
 import NatParksInfo from './Components/NatParksInfo';
 import Navbar from './Components/Navbar';
 import Card from './Components/Card';
+import Fire from './Components/Fire';
 
 function App() {
   return (

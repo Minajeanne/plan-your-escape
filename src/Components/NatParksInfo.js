@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/main.css";
+import Fire from './Fire';
 
 const axios = require('axios');
 
@@ -27,7 +28,7 @@ class NatParksInfo extends React.Component {
 
   render () {
     const { isLoading, parks } = this.state;
-    
+
     return (
       <div className="container bg-transparent border rounded-lg overflow-hidden shadow-md">
         <h1 className="font-sans font-semibold text-center text-green-900 text-3xl py-8">US National Parks</h1>
@@ -52,7 +53,8 @@ class NatParksInfo extends React.Component {
             );
           })
         ) : (
-          <h3>Loading...</h3>
+          <Fire />
+          // <h3>Loading...</h3>
         )}
       </div>
     );
