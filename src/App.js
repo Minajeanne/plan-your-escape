@@ -8,7 +8,7 @@ import Fire from './Components/Fire';
 
 function App() {
   return (
-    <div className="container backgroundPattern">
+    <div>
       <Navbar />
       <NatParksInfo>
         <Card />
